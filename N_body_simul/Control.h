@@ -1,9 +1,9 @@
 #pragma once
 
-#include "force.h"
-#include "particle.h"
-#include "set.h"
-#include "time.h"
+#include "Force.h"
+#include "Particle.h"
+#include "Set.h"
+#include "Time.h"
 
 /* This class takes class force, particle, set as its data member*/
 class Control
@@ -12,8 +12,8 @@ private:
 	Set memory; //variable 'memory' saves information of set, particle, force
 public:
 	/*These functions will receive constructors of class force, particle, set*/
-	void ap(double mass_, double x_pos, double y_pos, double x_vel = 0, double y_vel = 0);
-	//add a particle
+	void ap(int particle_num, double mass_, double x_pos, double y_pos, double x_vel = 0, double y_vel = 0); //add a particle
+	void Control::ap(int particle_num, double* list); // add a particle overloaded
 	void as(double* set); //add a set
 	void ae(double* set, double* particle); //add a particle to a set
 	void af(double force, double* set, double x_force, double y_force); //add a force to a set
@@ -21,10 +21,10 @@ public:
 
 	void pm();
 	/**
-	 * print out memory usage(number of particles,sets, forces
-	 * @param			nothing(void) because this function belongs to class Control
-	 * @return			nothing(void)
-	 */
+	* print out memory usage(number of particles,sets, forces
+	* @param			nothing(void) because this function belongs to class Control
+	* @return			nothing(void)
+	*/
 	void pa();
 	/**
 	* print out all information of memory(particles, sets, forces)

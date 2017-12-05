@@ -22,7 +22,7 @@ void parser(istream& is) {
 
 	map<int, Particle> all; //map
 
-	map<int, Set* > all_set; //map saves set
+	map<int, std::map<int, std::map<int, Particle_s> > > all_set; //map saves set
 
 	for (string line; getline(is, line); ) {
 		if (line == "qq")
@@ -51,6 +51,18 @@ void parser(istream& is) {
 			else if (words[0] == "dp")
 			{
 				particle_all->delete_particle(stoi(words[1]));
+				break;
+			}
+			else if (words[0] == "as")
+			{
+				set_all->big_set_make(stoi(words[1]), all_set[stoi(words[1])]);
+				cout << "Set " << words[1] << " added \n\n";
+				break;
+			}
+			else if (words[0] == "ae")
+			{
+				set_all->indiv_set_make(stoi(words[1]), stoi(words[2]), &particle_all, set_all);
+				cout << "Particle " << words[2] << " added to set " << words[1] <<"\n\n";
 				break;
 			}
 		}

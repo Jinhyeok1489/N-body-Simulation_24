@@ -14,8 +14,8 @@ struct Particle_s {
 class Particle//saves characteristic of particles 
 {
 private:
-	std::map<int, Particle_s> part_info;
 public:
+	std::map<int, Particle_s> part_info;
 	Particle(int num, double mass_, double x_position, double y_position, double x_velocity = 0, double y_velocity = 0);
 	//constructor of particle, parameter goes to member variable
 	Particle();

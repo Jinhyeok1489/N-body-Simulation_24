@@ -17,12 +17,12 @@ private:
 	
 	std::map<int , Particle* > indiv_set_info; //map indiv_set_info saves information of type Particle (class)
 	std::map<int, Force*> force_info; //map force_info saves information of type Force (struct)
-	std::map<int, std::map<int, Particle* >> all_set_info; //map all_set_info saves information of type map of Particle(already map)
 public:
+	std::map<int, std::map<int, Particle_s>> all_set_info; //map all_set_info saves information of type map of Particle(already map)
 	Set();
 	Set(int num);//constructor
 
-	void Set::indiv_set_make(int part_num, int set_num, std::map<int,Particle_s> * particle_add, std::map<int, std::map<int, Particle_s>> set_info);
+	void Set::indiv_set_make(int part_num, int set_num, Particle ** particle_add, Set* set_info);
 	/** this function help us to save particle into set
 	/* int part_num : this int variable notice which particle to be added into set 
 	/* int set_num : this int variable notice which set to have new particle

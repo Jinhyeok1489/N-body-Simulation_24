@@ -9,19 +9,18 @@ Set::Set(int num)
 
 Set::Set() {};
 
-void Set::indiv_set_make(int part_num, int set_num, std::map<int, Particle_s>* particle_add, std::map<int, std::map<int, Particle_s>> set_info)
+void Set::indiv_set_make(int set_num, int part_num, Particle** particle_add, Set* set_info)
 {
-	set_info[set_num].insert(std::make_pair(part_num, (*particle_add)[part_num]));
+	set_info->all_set_info[set_num].insert(std::make_pair(part_num, (*particle_add)->part_info[part_num]));
 	//this function add particle to set!
 }
 
-void Set::big_set_make(int set_num, std::map<int, std::map<int, Particle_s>> set_info)
+void Set::big_set_make(const int set_num, std::map<int, std::map<int, Particle_s> > set_info)
 {
-	std::map<int, Particle_s> temp;
-
 	set_info.insert(std::make_pair(set_num, set_info[set_num]));
 }
 
+//void Set::
 
 
 /*

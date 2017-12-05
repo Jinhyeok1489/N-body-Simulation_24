@@ -7,8 +7,8 @@
 
 struct Particle_s {
 	double mass;
-	double position[2]; //[0]: x component, [1]: y component
-	double velocity[2]; //[0]: x component, [1]: y component
+	double position[2] = {}; //[0]: x component, [1]: y component
+	double velocity[2] = {}; //[0]: x component, [1]: y component
 };
 
 class Particle//saves characteristic of particles 

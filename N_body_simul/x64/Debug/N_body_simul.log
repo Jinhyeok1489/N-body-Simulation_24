@@ -1,5 +1,4 @@
-﻿  Set.cpp
-  Particle.cpp
+﻿  Particle.cpp
 c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.12.25827\include\utility(233): warning C4244: '초기화 중': 'double'에서 'const int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.12.25827\include\xmemory0(945): note: 컴파일 중인 함수 템플릿 인스턴스화 'std::pair<const _Kty,_Ty>::pair<double,Particle_s,0>(std::pair<double,Particle_s> &&) noexcept'에 대한 참조를 확인하십시오.
           with
@@ -69,6 +68,8 @@ c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.1
               _Ty=std::pair<const int,Particle_s>,
               _Valty=std::pair<double,Particle_s>
           ]
-  main.cpp
   코드를 생성하고 있습니다...
+  건너뛰고 있습니다... (관련된 변경 내용 없음)
+  main.cpp
+  Set.cpp
   N_body_simul.vcxproj -> C:\Users\DSong\Desktop\Programming\C++\N-body-Simulation_24-748c60c1d8203d653f576ecf2a0c218c00005b38\N-body-Simulation_24-748c60c1d8203d653f576ecf2a0c218c00005b38\N_body_simul\x64\Debug\N_body_simul.exe

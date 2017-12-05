@@ -34,6 +34,10 @@ public:
 	/* int set_num : key of set
 	/* std::map<int, std::map<int, Particle_s>> set_info : this variable is map of map
 	*/
+
+
+
+	/*
 	void ps(Set set);//print informaiton of the set
 					 //void as();//make a set
 	void to_set(int num);//add a particle to the set

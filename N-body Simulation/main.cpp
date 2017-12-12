@@ -11,38 +11,60 @@ map<int, Particle> all; //global variable map!
 
 void parser(istream& is);
 
-int main() {
+int main()
+{
 	cout << "Enter a command: ";
 	parser(cin);
 }
 
 void parser(istream& is) {
-	Particle *particle_all= new Particle; //dynamic memory allocation for Particle class
+	Particle *particle_all = new Particle; //dynamic memory allocation for Particle class
 	Set *set_all = new Set; //dynamic memory allocation for Set class 
 
+	int err_num = 1; //variable for handling exception error
 	map<int, Particle> all; //map
-
 	map<int, std::map<int, std::map<int, Particle_s> > > all_set; //map saves set
 
 	for (string line; getline(is, line); ) {
 		if (line == "qq")
 			break;
-			
 		istringstream iss{ line };
-		vector<string> words{ istream_iterator<string> {iss},
-			istream_iterator<string> {} };
+		vector<string> words{ istream_iterator<string> {iss}, istream_iterator<string> {} };
+		
+
 		for (int i = 0; i < words.size(); ++i)
 		{
 			if (words[0] == "ap") //if command is "ap"(add particle)
 			{
-				double *temp=new double[words.size()];
-				for (int j = 0; j < words.size()-1; ++j)
-					temp[j] = stod(words[j+1], 0);
-				particle_all->var_set(temp);
-				//add key of result to all
-				delete(temp);
-				cout << "Particle " << words[1] << " added \n\n";
-				break;
+				int exp_inp = 7; // expected number of inputs  
+				if (words.size() == 1) //if command command was typed
+				{
+					cout << "Now! We are run out of inputs! Please give more input! \n\n";
+					break;
+				}
+				else if (stoi(words[1]) < 0) //if particle number is smaller than 0
+				{
+					cout << "Particle number is not in range! \n\n";
+					break;
+				}
+				
+				else if (words.size() < exp_inp)
+					//if size of words is smaller than expected, error control 
+				{
+					cout << "Now! We are run out of inputs! Please give more input! \n\n";
+					break;
+				}
+				
+				else {
+					double *temp = new double[words.size()];
+					for (int j = 0; j < words.size() - 1; ++j)
+						temp[j] = stod(words[j + 1], 0);
+					particle_all->var_set(temp);
+					//add key of result to all
+					delete(temp);
+					cout << "Particle " << words[1] << " added \n\n";
+					break;
+				}
 			}
 			else if (words[0] == "pp")
 			{
@@ -63,7 +85,7 @@ void parser(istream& is) {
 			else if (words[0] == "ae")
 			{
 				set_all->indiv_set_make(stoi(words[1]), stoi(words[2]), &particle_all, set_all);
-				cout << "Particle " << words[2] << " added to set " << words[1] <<"\n\n";
+				cout << "Particle " << words[2] << " added to set " << words[1] << "\n\n";
 				break;
 			}
 			else if (words[0] == "ps")
@@ -74,13 +96,13 @@ void parser(istream& is) {
 			else if (words[0] == "de")
 			{
 				set_all->delete_p_to_s(stoi(words[1]), stoi(words[2]));
-				cout << "Particle " << words[2] << " deleted from Set" << words[1]<<"\n\n";
+				cout << "Particle " << words[2] << " deleted from Set" << words[1] << "\n\n";
 				break;
 			}
 			else if (words[0] == "af")
 			{
 				set_all->impose_force(stoi(words[1]), stoi(words[2]), stod(words[3]), stod(words[4]));
-				cout << "Force " << words[1] << "is now imposed on Set " << words[2]<<"!\n\n";
+				cout << "Force " << words[1] << "is now imposed on Set " << words[2] << "!\n\n";
 				break;
 			}
 			else if (words[0] == "pf")
@@ -91,10 +113,16 @@ void parser(istream& is) {
 			else if (words[0] == "df")
 			{
 				set_all->delete_force(stoi(words[1]));
-				cout << "Force " << words[1] << " deleted!";
+				cout << "Force " << words[1] << " deleted!\n\n";
+			}
+			else
+			{
+				cout << "Unrecognized command!\n\n";
 			}
 		}
 		cout << "Enter a command: ";
 	}
 	delete(particle_all);
 }
+			
+

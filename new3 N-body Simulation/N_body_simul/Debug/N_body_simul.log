@@ -1,0 +1,4 @@
+﻿  main.cpp
+c:\users\user\source\repos\n_body_simul\n_body_simul\main.cpp(28): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\user\source\repos\n_body_simul\n_body_simul\main.cpp(33): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  N_body_simul.vcxproj -> C:\Users\User\source\repos\N_body_simul\Debug\N_body_simul.exe
